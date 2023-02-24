@@ -1,8 +1,17 @@
-import React from 'react'
+import React, { useState } from 'react'
 import '../styles/nav.scss';
 import { AiOutlineSearch } from 'react-icons/ai'
 
-const Nav = () => {
+
+
+const Nav = ({ setSearch }) => {
+    const [searchInput, setSearchInput] = useState('')
+    const handleInput = (e) => {
+        console.log(e.target.value);
+        setSearchInput(e.target.value)
+        setSearch(searchInput)
+    }
+
     return (
         <div className="nav">
             <div className="navWrapper">
@@ -12,7 +21,7 @@ const Nav = () => {
                 <div className="centerNav">
                     <div className="searchNav">
                         <AiOutlineSearch className='searchIcon' />
-                        <input type="text" placeholder='Search Image here...' />
+                        <input value={searchInput} onChange={handleInput} type="text" placeholder='Search Image here...' />
                     </div>
                     <ul className="navItems">
                         <li className="item">Explore</li>

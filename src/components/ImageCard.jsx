@@ -16,10 +16,10 @@ const ImageCard = ({ image }) => {
                 <div className="cardInfo">
 
                     <div className="leftInfo">
-                        <img src="./images/userimg.jpg" alt="" className="userImg" />
+                        <img src={image.user.profile_image.small} alt="" className="userImg" />
                         <div className="userInfo">
-                            <span className="name">Julia Robertson</span>
-                            <span className="userName">@juliaclicks</span>
+                            <span className="name">{image.user.name}</span>
+                            <span className="userName">@{image.user.username}</span>
                         </div>
                     </div>
 
