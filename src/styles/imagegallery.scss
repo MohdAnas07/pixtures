@@ -1,0 +1,39 @@
+@import './variable.scss';
+
+
+.imageGallery{
+    width: 80%;
+    margin:0rem auto;
+    padding:3rem 0;
+
+    .imageGalleryWrapper{
+
+        width: 100%;
+        columns: 3;
+        gap: 1.5rem;
+    }
+
+}
+
+
+@media screen and (max-width: 940px) {
+
+    .imageGalleryWrapper{
+        columns: 2 !important;
+        // gap: 1.5rem;
+    }
+}
+
+@media screen and (max-width: 540px) {
+
+    .imageGalleryWrapper{
+        gap: .5rem !important;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .imageGalleryWrapper{
+        columns: 1 !important;
+        gap: .5rem !important;
+    }
+}

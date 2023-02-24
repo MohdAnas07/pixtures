@@ -1,0 +1,84 @@
+@import './variable.scss';
+
+
+.header{
+    width: 100%;
+    height: 350px;
+    /* border: 1px solid red; */
+    background-image: url('./images/homepage.jpg');
+    background-position: 20% 80%; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover;
+    color: #fff;
+    display: grid;
+    place-items: center;
+
+    .headerWrapper{
+        width: 100%;
+        display: flex;
+        justify-self: center;
+        align-items: center;
+        flex-direction: column;
+
+        .title{
+            text-align: center;
+            display: inline;
+            font-weight:700;
+            size:32px;
+            line-height:39.01px;
+            letter-spacing:-2%;
+          }
+
+        .tagline{
+            margin: 1rem 0 ;
+          }
+
+          .searchNav{
+            display: flex;
+            justify-self: center;
+            align-items: center;
+            text-align: center;
+            width: 70%;
+            padding: 1rem;
+            background-color: $light-gray;
+            border-radius: 8px;
+            border: 1px solid #ECECEC;
+      
+            .searchIcon{
+                width: 25px;
+                height: 25px;
+                color: #C4C4C4;
+                margin-right:5px;
+            }
+
+            input{
+                height: 100%;
+                width: 100%;
+                background: transparent;
+                border: none;
+                outline: none;
+                color: $black;
+                font-size: 1rem;
+                font-weight: 500;
+                // font-size: 14px;
+                line-height: 17px;
+            }
+            ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+                color: #C4C4C4;
+                opacity: 1; /* Firefox */
+              }
+        }
+
+        //   .searchInput{
+        //     border: none;
+        //     width: 70%;
+        //     margin: auto;
+        //     padding: 1rem;
+        //     background-color: #fff;
+        //     outline: none;
+        //     border-radius: 8px;
+        //     color: #000;
+        //     font-size: 1rem;
+        //   }
+      }
+}

@@ -1,0 +1,92 @@
+@import './variable.scss';
+
+.imageCard{
+    width: 100%;
+    border-radius: 8px;
+    background-color: $light-gray;
+    border: 1px solid #ECECEC;
+    margin-bottom: 1.5rem;
+
+    .cardWrapper{
+        width: 100%;
+
+        .gridImages{
+            img{
+                width: 100%;
+                border-radius: 8px 8px 0 0;
+            }
+        }
+
+        .cardInfo{
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+
+            .leftInfo{
+                display: flex;
+                gap: 10px;
+
+                .userImg{
+                    width: 40px;
+                    height: 40px;
+                    border-radius: 50%;
+                    object-fit: cover;
+                }
+
+                .userInfo{
+                    display: flex;
+                    flex-direction: column;
+
+                    .name{
+                        font-size: 14px;
+                        font-weight: 700;
+                    }
+
+                    .userName{
+                        font-size: 12px;
+                        font-weight: 700;
+                        font-style: italic;
+                        color: $dark-gray;
+                    }
+                }
+            }
+
+
+            .rightInfo{
+                .likeIcon{
+                    font-size: 14px;
+                    margin-right: 5px;
+                    cursor: pointer;
+                }
+
+                .likes{
+                    font-size: 12px;
+                    font-weight: 700;
+                }
+            }
+        }
+
+
+
+    }
+}
+
+@media screen and (max-width: 540px) {
+
+    .imageCard{
+        margin-bottom: .5rem;
+    }
+
+    // .rightInfo{
+    //     .likeIcon{
+    //         font-size: 12px;
+    //         margin-right: 5px;
+    //         cursor: pointer;
+    //     }
+
+    //     .likes{
+    //         font-size: 10px;
+    //         font-weight: 600;
+    //     }
+    // }
+}
