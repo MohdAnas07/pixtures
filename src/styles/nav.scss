@@ -83,21 +83,34 @@
         .rightNav{
             font-weight: 600;
             font-size: .8rem;
+            display: flex;
+            flex-direction: row;
+            height: 100%;
+            align-items: center;
+            gap: 5px;
+
+            .switch{
+                position: relative;
+            }
             
         }
     }
 }
 
 .showHamburger{
-    display:none !important;
     display: flex;
     flex-direction: row;
     align-items: center;
     gap: 10px;
-    
+    display:none ;
+
     .searchIcon{
         font-size: 2rem;
         display: inline;
+        color: #4F4F4F;
+    }
+    .hamburgerIcon{
+        margin-left: 1rem;
     }
 }
 
@@ -106,7 +119,7 @@
         display:block !important;
     }
     .rightNav{
-        display: none;
+        display: none !important;
     }
 
     .centerNav{

@@ -1,12 +1,30 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import axios from 'axios';
 import Header from '../components/header'
 import ImageGallery from '../components/ImageGallery'
 import Nav from '../components/Nav'
+import { ThemeContext } from '../context';
 
 const Home = () => {
     const [search, setSearch] = useState('')
     const [imageData, setImageData] = useState([]);
+
+    const theme = useContext(ThemeContext)
+    const darkMode = theme.state.darkMode;
+
+    const dark = "#232323";
+    const light = "white";
+
+    const Style = {
+        backgroundColor: darkMode ? dark : light,
+        color: darkMode ? light : dark,
+    }
+
+    const InputStyle = {
+        backgroundColor: darkMode ? '#4F4F4F' : light,
+        color: darkMode ? light : '#4F4F4F',
+        border: darkMode && '1px solid #858484'
+    }
 
     useEffect(() => {
 
@@ -25,12 +43,12 @@ const Home = () => {
     }, [search])
 
     return (
-        <div className="home">
+        <div style={Style} className="home">
             <Nav setSearch={setSearch} />
             {
                 search ? <></> : <Header setSearch={setSearch} />
             }
-            <ImageGallery imageData={imageData} />
+            <ImageGallery imageData={imageData} search={search} />
         </div>
     )
 }

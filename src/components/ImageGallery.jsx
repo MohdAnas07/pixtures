@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import axios from 'axios'
 import fileDownload from 'js-file-download'
 import '../styles/imagegallery.scss';
@@ -9,12 +9,30 @@ import { AiOutlineInfoCircle } from 'react-icons/ai'
 import { CiTwitter } from 'react-icons/ci'
 import { SlLike } from 'react-icons/sl'
 import { BiShareAlt } from 'react-icons/bi'
+import { ThemeContext } from '../context';
 
 
-const ImageGallery = ({ imageData }) => {
+const ImageGallery = ({ imageData, search }) => {
 
     const [showPopup, setShowPopup] = useState(false);
     const [popupImg, setPopupImg] = useState({});
+
+    const theme = useContext(ThemeContext)
+    const darkMode = theme.state.darkMode;
+
+    const dark = " #141414";
+    const light = "#fff";
+
+    const Style = {
+        backgroundColor: darkMode ? dark : light,
+        color: darkMode ? light : dark,
+    }
+    const borderStyle = {
+        // backgroundColor: darkMode ? dark : light,
+        // color: darkMode ? light : dark,
+        border: darkMode && '1px solid #858484'
+    }
+
 
 
     const popupHandle = () => {
@@ -37,6 +55,26 @@ const ImageGallery = ({ imageData }) => {
 
     return (
         <div className="imageGallery">
+            {
+                // Tags DATA ================================================
+                imageData.length > 0 && <div className="tagsCard">
+                    <h2>{search}</h2>
+                    <div className="tagsBox">
+                        {
+                            imageData.slice(0, 4).map((image) => {
+                                return (
+                                    image.tags && image.tags.map((tag, ind) => {
+                                        return (
+                                            <span className="tag" key={ind} >{tag.title}</span>
+                                        )
+                                    })
+                                )
+                            })
+                        }
+                    </div>
+                </div>
+            }
+
             <div className="imageGalleryWrapper">
                 {
                     imageData.length > 0 ? imageData.map((image) => {
@@ -51,11 +89,12 @@ const ImageGallery = ({ imageData }) => {
             </div>
 
 
-            {
-                showPopup && popupImg && <div className="popupCard">
-                    <div className="popupWrapper">
-                        <AiOutlineClose className='popupClose' onClick={popupHandle} />
 
+            {/* ============= POPUP MODAL =========================================== */}
+            {
+                showPopup && popupImg && <div style={borderStyle} className="popupCard">
+                    <div style={Style} className="popupWrapper">
+                        <AiOutlineClose style={Style} className='popupClose' onClick={popupHandle} />
                         <div className="popupCardImg">
                             <img src={popupImg.urls.full} alt={popupImg.description
                             } className="popupImg" />
@@ -73,7 +112,7 @@ const ImageGallery = ({ imageData }) => {
                             </div>
                         </div>
 
-                        <div className="popupCardInfo">
+                        <div style={Style} className="popupCardInfo">
                             <div className="userInfoBox">
                                 <div className="userProfile">
                                     <img src={popupImg.user.profile_image.small} alt="user Img" />
