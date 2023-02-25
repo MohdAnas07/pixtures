@@ -5,6 +5,17 @@
     height: 90px;
     background-color: #fff;
     color: #000;
+    position: relative;
+
+    .sideNavBox{
+        position: fixed;
+        right: 0;
+        top: 90px;
+        width: 100%;
+        min-height: calc(100vh - 90px);
+        z-index: 100;
+        background: rgb(0, 0, 0, .9);
+    }
 
     .navWrapper{
         width: 80%;

@@ -42,6 +42,9 @@ const Home = () => {
         getData();
     }, [search])
 
+
+
+
     return (
         <div style={Style} className="home">
             <Nav setSearch={setSearch} />
