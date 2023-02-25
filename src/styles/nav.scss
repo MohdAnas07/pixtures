@@ -87,3 +87,29 @@
         }
     }
 }
+
+.showHamburger{
+    display:none !important;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    
+    .searchIcon{
+        font-size: 2rem;
+        display: inline;
+    }
+}
+
+@media screen and (max-width:1120px) {
+    .showHamburger{
+        display:block !important;
+    }
+    .rightNav{
+        display: none;
+    }
+
+    .centerNav{
+        display: none !important;
+    }
+}

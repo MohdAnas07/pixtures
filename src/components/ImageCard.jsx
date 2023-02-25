@@ -3,16 +3,24 @@ import '../styles/imagecard.scss'
 
 import { SlLike } from 'react-icons/sl'
 
-const ImageCard = ({ image }) => {
+const ImageCard = ({ image, setPopupImg, setShowPopup }) => {
+
+    const handleImage = (image) => {
+
+        setShowPopup(true)
+        setPopupImg(image)
+        console.log(image);
+
+        document.body.style.overflow = 'hidden';
+    }
 
     return (
-        <div className="imageCard">
+        <div className="imageCard" onClick={() => handleImage(image)}>
             <div className="cardWrapper">
-                <div className="gridImages">
-                    <img src={image.urls.small} alt={image.urls.description
+                <div className="imageWrapper">
+                    <img src={image.urls.small} alt={image.description
                     } className='cardImg' />
                 </div>
-
                 <div className="cardInfo">
 
                     <div className="leftInfo">
@@ -32,6 +40,8 @@ const ImageCard = ({ image }) => {
 
             </div>
         </div>
+
+
     )
 }
 

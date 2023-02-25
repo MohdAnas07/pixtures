@@ -16,7 +16,7 @@ const Home = () => {
                 setImageData(res.data)
                 console.log('from open api', res.data);
             } else {
-                const res = await axios.get(`https://api.unsplash.com/search/photos?page=2&query=${search}&client_id=zaEYGybmd3Jc5G_oJEyX1EpwWORsAQu4bD-2fUrEsAw`)
+                const res = await axios.get(`https://api.unsplash.com/search/photos?page=1&query=${search}&client_id=zaEYGybmd3Jc5G_oJEyX1EpwWORsAQu4bD-2fUrEsAw`)
                 setImageData(res.data.results)
                 console.log('from query api', res.data.results);
             }
@@ -27,7 +27,9 @@ const Home = () => {
     return (
         <div className="home">
             <Nav setSearch={setSearch} />
-            <Header setSearch={setSearch} />
+            {
+                search ? <></> : <Header setSearch={setSearch} />
+            }
             <ImageGallery imageData={imageData} />
         </div>
     )

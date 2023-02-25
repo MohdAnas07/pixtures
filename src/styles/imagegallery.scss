@@ -5,6 +5,7 @@
     width: 80%;
     margin:0rem auto;
     padding:3rem 0;
+    position: relative;
 
     .imageGalleryWrapper{
 
@@ -13,11 +14,231 @@
         gap: 1.5rem;
     }
 
+    .popupCard{
+        position: fixed;
+        left: 0;
+        top: 0;
+        background-color: rgb(0, 0, 0, .9);
+        height: 100%;
+        width: 100%;
+        z-index: 100;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .popupWrapper{
+            width: 70%;
+            // height: 95%;
+            // border: 1px solid red;
+            position: relative;
+            background-color: #fff;
+            border-radius: 8px;
+            // overflow: hidden;
+
+            .popupClose{
+                position: absolute;
+                right: -15px;
+                top: -15px;
+                font-size: 2rem;
+                background-color: #fff;
+                border-radius: 50%;
+                padding :5px ;
+                z-index: 101;
+                cursor: pointer;
+            }
+
+            .popupCardImg{
+
+                position: relative;
+
+                .popupImg{
+                    width: 100%;
+                    height: 380px;
+                    object-fit: cover;
+                    border-radius: 8px 8px 0 0;
+        
+                }
+
+                .shareDownload{
+                    position: absolute;
+                    bottom: 10px;
+                    left: 0;
+                    width: 100%;
+                    // border:1px solid red;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    padding: 0 1rem;
+
+                    .shareBtns{
+                        display: flex;
+                        align-items: center;
+                        gap: 10px;
+
+                        .shareBtn{
+                            background-color: transparent;
+                            border: 1px solid #fff;
+                            display: flex;
+                            flex-direction: row;
+                            justify-content: center;
+                            align-items: center;
+                            border-radius: 4px;
+                            padding: 6.58824px 9.88235px;
+                            gap: 8.24px;
+                            outline: none;
+                            font-weight: 500;
+                            font-size: 14px;
+                            line-height: 10px;
+                        }
+                    }
+
+                    .downloadBtn{
+                        .download{
+                            background-color: #3CB46E;
+                            font-weight: 500;
+                            font-size: 14px;
+                            line-height: 10px;
+                            border-radius: 4px;
+                            padding: 10px 12px;
+                        }
+                    }
+                }
+            }
+           
+
+            .popupCardInfo{
+                padding: 10px 1rem  ;
+
+                .userInfoBox{
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    height: 60px;
+                    margin-bottom:1rem ;
+
+                    .userProfile{
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+
+                        img{
+                            width: 50px;
+                            height: 50px;
+                            border-radius: 50%;
+                            object-fit: cover;
+                            margin-right: .7rem;
+
+                        }
+
+                        .userInfo{
+                            display: flex;
+                            flex-direction: column;
+                            margin-right: 2rem;
+
+                            .name{
+                                font-size: 14px;
+                                font-weight: 700;
+                                color: #4F4F4F;
+                            }
+        
+                            .userName{
+                                font-size: 12px;
+                                font-weight: 600;
+                                font-style: italic;
+                                color: #A7A7A7;
+                            }
+                        }
+
+                        .userSocialHandle{
+                            display: flex;
+                            gap: 10px;
+                            align-items: center;
+
+                            span{
+                                text-align: center;
+                                font-size: 12px;
+                                font-weight: 600;
+                                font-style: italic;
+                                color: #A7A7A7;
+                                display: flex;
+                                align-items: center;
+                                cursor: pointer;
+                                transition: all 300ms ease-in-out;
+                                &:hover{
+                                    color: #010101;
+                                }
+
+                                .socialIcon{
+                                    font-size: 1.1rem;
+                                }
+                            }
+                        }
+
+                    }
+
+                    
+                    .likesInfo{
+                        color: #858484;
+                        display: flex;
+                        gap: 3px;
+
+                        .download{
+                            margin-right: 10px;
+                        }
+                        .likeIcon{
+                            font-size: 14px;
+                            margin-right: 5px;
+                            cursor: pointer;
+                        }
+        
+                        .likes{
+                            font-size: 12px;
+                            font-weight: 600;
+                        }
+                    }
+                }
+
+                .tagsCard{
+                    
+                    .tagLine{
+                        font-size: 14px;
+                        font-weight: 700;
+                        color: #4F4F4F;
+                    }
+
+                    .tagsBox{
+                        padding: 10px 0;
+                        display: flex;
+                        gap: 10px;
+                        overflow-x: hidden;
+
+                        .tag{
+                            background-color: #ECECEC;
+                            padding: 5px;
+                            border-radius: 4px;
+                            display: inline;
+                            padding: 8px 12px;
+                            font-weight: 500;
+                            font-size: 10px;
+                            line-height: 12px;
+                            text-align: center;
+                            color: #4F4F4F;
+
+                        }
+                    }
+                }
+            }
+            
+        }
+        
+    }
+
 }
 
 
 @media screen and (max-width: 940px) {
 
+  
     .imageGalleryWrapper{
         columns: 2 !important;
         // gap: 1.5rem;
@@ -28,6 +249,10 @@
 
     .imageGalleryWrapper{
         gap: .5rem !important;
+    }
+
+    .popupWrapper{
+        width: 90% !important;
     }
 }
 

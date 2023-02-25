@@ -1,16 +1,25 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import '../styles/nav.scss';
-import { AiOutlineSearch } from 'react-icons/ai'
+import Hamburger from 'hamburger-react'
+import { AiOutlineSearch } from 'react-icons/ai';
+import { GiHamburgerMenu } from 'react-icons/gi';
 
 
 
 const Nav = ({ setSearch }) => {
+
     const [searchInput, setSearchInput] = useState('')
+    // const [viewportWidth, setViewportWidth] = useState(window.innerWidth)
+    // const [showHamburger, setShowHamburger] = useState(false)
+
+
     const handleInput = (e) => {
         console.log(e.target.value);
         setSearchInput(e.target.value)
         setSearch(searchInput)
     }
+
+
 
     return (
         <div className="nav">
@@ -18,6 +27,9 @@ const Nav = ({ setSearch }) => {
                 <div className="leftNav">
                     <h2 className="logo">Image Gallery</h2>
                 </div>
+
+
+
                 <div className="centerNav">
                     <div className="searchNav">
                         <AiOutlineSearch className='searchIcon' />
@@ -29,6 +41,12 @@ const Nav = ({ setSearch }) => {
                         <li className="item">Community</li>
                     </ul>
                 </div>
+
+                <div className='showHamburger'>
+                    <AiOutlineSearch className='searchIcon' />
+                    <Hamburger style={{ display: 'inline-block' }} />
+                </div>
+
                 <div className="rightNav">
                     <span>Dark Mode</span>
                     <label className="switch">
@@ -36,6 +54,8 @@ const Nav = ({ setSearch }) => {
                         <span className="slider round"></span>
                     </label>
                 </div>
+
+
             </div>
         </div>
     )
