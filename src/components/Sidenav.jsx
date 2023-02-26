@@ -3,8 +3,7 @@ import '../styles/sidenav.scss';
 import Toggle from './Toggle';
 import { ThemeContext } from '../context';
 
-const Sidenav = () => {
-
+const Sidenav = ({ showSideNav }) => {
 
     const theme = useContext(ThemeContext)
     const darkMode = theme.state.darkMode;
@@ -13,8 +12,9 @@ const Sidenav = () => {
     const light = "white";
     const Style = {
         backgroundColor: darkMode ? dark : light,
-        color: darkMode ? light : dark,
+        color: darkMode ? light : dark
     }
+
 
     return (
         <div style={Style} className='sidenav'>

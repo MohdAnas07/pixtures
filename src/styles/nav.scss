@@ -11,12 +11,13 @@
 
     .sideNavBox{
         position: fixed;
-        right: 0;
+        // right: 0;
         top: 90px;
         width: 100%;
         min-height: calc(100vh - 90px);
         z-index: 100;
         background: rgb(0, 0, 0, .9);
+        transition: all 1000ms ease-in-out;
     }
 
     .navWrapper{
@@ -137,5 +138,11 @@
 
     .centerNav{
         display: none !important;
+    }
+}
+
+@media screen and (min-width:1119px) {
+    .sideNavBox{
+        display: none;
     }
 }

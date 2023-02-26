@@ -93,7 +93,7 @@ const Nav = ({ setSearch }) => {
             {/* ============ SideNav =========================== */}
 
             {showSideNav && <div className="sideNavBox">
-                <Sidenav />
+                <Sidenav showSideNav={showSideNav} />
             </div>}
 
         </div>

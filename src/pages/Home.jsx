@@ -31,15 +31,17 @@ const Home = () => {
     useEffect(() => {
 
         const getData = async () => {
+            console.log(import.meta);
+
             if (search === '') {
-                const res = await axios.get(`https://api.unsplash.com/photos?page=4&client_id=zaEYGybmd3Jc5G_oJEyX1EpwWORsAQu4bD-2fUrEsAw`)
+                const res = await axios.get(`https://api.unsplash.com/photos?page=4&client_id=${import.meta.env.VITE_CLIENT_ID}`)
                 setImageData(res.data)
                 console.log('from open api', res);
                 if (res.status === 200) {
                     setIsLoading(false)
                 }
             } else {
-                const res = await axios.get(`https://api.unsplash.com/search/photos?page=1&query=${search}&client_id=zaEYGybmd3Jc5G_oJEyX1EpwWORsAQu4bD-2fUrEsAw`)
+                const res = await axios.get(`https://api.unsplash.com/search/photos?page=1&query=${search}&client_id=${import.meta.env.VITE_CLIENT_ID}`)
                 setImageData(res.data.results)
                 console.log('from query api', res.data.results);
             }
