@@ -34,8 +34,9 @@
             line-height: 10px;
             padding: 1rem 0;
             text-align: center;
+            cursor: pointer;
             &:hover{
-                background-color:   $light-gray;
+                color: $dark-gray;
             }
         }
     }
