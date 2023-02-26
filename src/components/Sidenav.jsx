@@ -15,18 +15,13 @@ const Sidenav = () => {
         backgroundColor: darkMode ? dark : light,
         color: darkMode ? light : dark,
     }
-    // const InputStyle = {
-    //     backgroundColor: darkMode ? '#4F4F4F' : light,
-    //     color: darkMode ? light : '#4F4F4F',
-    //     border: darkMode && '1px solid #858484'
-    // }
-    // { background: { darkMode } ? "#000" : '#ffff', color: { darkMode } ? "#fff" : '#000' }
 
     return (
         <div style={Style} className='sidenav'>
             <div className="switch" >
                 <Toggle />
             </div>
+
             <hr style={{ width: '100%' }} />
 
             <ul className="navItems">

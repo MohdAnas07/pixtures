@@ -39,8 +39,18 @@ const Nav = ({ setSearch }) => {
 
     const handleSidenav = () => {
         setShowSideNav(!showSideNav)
-        document.body.style.overflow = 'hidden';
     }
+
+
+    useEffect(() => {
+        if (showSideNav) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = 'unset';
+        }
+    }, [showSideNav])
+
+
 
     return (
         <div style={Style} className="nav">
