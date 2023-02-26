@@ -17,9 +17,6 @@ function App() {
     color: darkMode ? light : dark
   }
 
-
-
-
   return (
     <div style={style} className='app'>
       <Home />

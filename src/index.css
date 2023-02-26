@@ -24,7 +24,7 @@ body {
   place-items: center;
   min-width: 100vw;
   min-height: 100vh;
-  overflow-x: hidden;
+  overflow-x: hidden !important;
   box-sizing: border-box;
 }
 
@@ -76,3 +76,24 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
+
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #2c2c2c;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #5a5a5a;
+  border-radius: 8px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
