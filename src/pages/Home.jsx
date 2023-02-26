@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useContext } from 'react'
 import axios from 'axios';
-import Header from '../components/header'
 import ImageGallery from '../components/ImageGallery'
 import Nav from '../components/Nav'
 import { ThemeContext } from '../context';
 import Loading from '../components/Loading';
+import Header from '../components/Header'
 
 const Home = () => {
     const [search, setSearch] = useState('')
@@ -48,9 +48,6 @@ const Home = () => {
         }
         getData();
     }, [search])
-
-
-
 
     return (
         <div style={Style} className="home">
