@@ -10,6 +10,7 @@ const Header = ({ setSearch }) => {
         setInput(e.target.value)
         setSearch(input)
     }
+
     return (
         <div className="header">
             <div className="headerWrapper">
