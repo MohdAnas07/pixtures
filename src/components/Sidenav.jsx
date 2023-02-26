@@ -9,7 +9,7 @@ const Sidenav = ({ showSideNav }) => {
     const darkMode = theme.state.darkMode;
 
     const dark = "#232323";
-    const light = "white";
+    const light = "#f8f8f8";
     const Style = {
         backgroundColor: darkMode ? dark : light,
         color: darkMode ? light : dark

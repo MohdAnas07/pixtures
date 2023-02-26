@@ -18,13 +18,13 @@ const Nav = ({ setSearch }) => {
     const theme = useContext(ThemeContext)
     const darkMode = theme.state.darkMode;
 
-
-    const dark = "#232323";
+    const dark = "rgb(26 26 26)";
     const light = "white";
     const Style = {
         backgroundColor: darkMode ? dark : light,
         color: darkMode ? light : dark,
     }
+
     const InputStyle = {
         backgroundColor: darkMode ? '#4F4F4F' : light,
         color: darkMode ? light : '#4F4F4F',
