@@ -91,11 +91,14 @@
                     bottom: 10px;
                     left: 0;
                     width: 100%;
-                    // border:1px solid red;
                     display: flex;
                     justify-content: space-between;
                     align-items: center;
                     padding: 0 1rem;
+                    font-weight: 500;
+                    line-height: 10px;
+                    border-radius: 4px;
+                    
 
                     .shareBtns{
                         display: flex;
@@ -110,12 +113,10 @@
                             justify-content: center;
                             align-items: center;
                             border-radius: 4px;
-                            padding: 6.58824px 9.88235px;
+                            padding: 6.5px 9.8px;
                             gap: 8.24px;
                             outline: none;
-                            font-weight: 500;
                             font-size: 14px;
-                            line-height: 10px;
                             background-color: #0e0e0e31;
                         }
                     }
@@ -123,11 +124,10 @@
                     .downloadBtn{
                         .download{
                             background-color: #3CB46E;
-                            font-weight: 500;
-                            font-size: 14px;
-                            line-height: 10px;
                             border-radius: 4px;
-                            padding: 10px 12px;
+                            padding: 10px 9px;
+                            // padding: 10px 12px;
+                            // font-size: 14px;
                         }
                     }
                 }
@@ -226,6 +226,9 @@
                             display: flex;
                             align-items: center;
                             justify-content: center;
+                            &:hover{
+                                color: #010101;
+                            }
                         }
 
                         .download{
@@ -292,21 +295,39 @@
     }
 }
 
-@media screen and (max-width: 540px) {
-
-    .imageGalleryWrapper{
-        gap: .5rem !important;
-    }
-
-    .popupWrapper{
-        width: 90% !important;
-    }
-}
 
 
 @media screen and (max-width: 700px) {
     .imageGalleryWrapper{
         columns: 1 !important;
         gap: .5rem !important;
+    }
+}
+
+
+@media screen and (max-width: 540px) {
+
+    .imageGalleryWrapper{
+        gap: .5rem !important;
+
+        .shareDownload{
+            padding: 0 !important;
+            
+            .shareBtn{
+                font-size: 12px !important;
+            }
+            
+            .download{
+                font-size: 12px !important;
+                padding: 8px 6px;
+                // padding: 8px 5px;
+                font-size: 12px !important;
+            }
+        }
+    }
+
+    .popupWrapper{
+        width: 90% !important;
+        
     }
 }

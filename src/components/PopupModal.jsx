@@ -43,15 +43,19 @@ const PopupModal = ({ popupImg, setShowPopup, Style, borderStyle }) => {
                         } className="popupImg" />
 
                         <div className="shareDownload">
+
                             <div className="shareBtns">
+
                                 <button className="shareBtn"><BiShareAlt />Share</button>
                                 <button className="shareBtn"><AiOutlineInfoCircle />Info</button>
                             </div>
+
                             <div className="downloadBtn">
                                 <button className="download" onClick={() => {
                                     handleDownload('https://images.unsplash.com/photo-1677161082730-5f0a653428b8?ixlib=rb-4.0.3&q=80&fm=jpg&crop=entropy&cs=tinysrgb', 'test-download.jpg')
                                 }}> Download Image</button>
                             </div>
+
                         </div>
                     </div>
 
@@ -79,12 +83,12 @@ const PopupModal = ({ popupImg, setShowPopup, Style, borderStyle }) => {
                                         <GoDesktopDownload className='likeIcon' />
                                         <span className="likes">1.2K</span>
                                     </div>
+
                                     <div className='likeBox' >
                                         <SlLike className='likeIcon' />
                                         <span className="likes">{totalLikes}</span>
                                     </div>
                                 </div>
-
                             </div>
 
                         </div>

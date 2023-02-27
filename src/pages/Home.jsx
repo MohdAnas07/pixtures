@@ -32,7 +32,7 @@ const Home = () => {
     useEffect(() => {
 
         const getData = async () => {
-            console.log(import.meta);
+            console.log("env variables", import.meta);
 
             if (search === '') {
                 const res = await axios.get(`https://api.unsplash.com/photos?page=4&client_id=${import.meta.env.VITE_CLIENT_ID}`)
@@ -49,6 +49,8 @@ const Home = () => {
         }
         getData();
     }, [search])
+
+
 
 
     return (
