@@ -9,3 +9,6 @@ cd image-gallery
 npm install
 npm run dev
 ```
+
+|reactjs | Javascript | Sass|
+|--------|------------|-----|
