@@ -140,10 +140,52 @@
 
                 .userInfoBox{
                     display: flex;
-                    justify-content: space-between;
+                    // justify-content: space-between;
                     align-items: center;
                     height: 60px;
                     margin-bottom:1rem ;
+                    flex-wrap: wrap;
+
+                    .userName{
+                        font-size: 12px;
+                        font-weight: 600;
+                        font-style: italic;
+                        color: #A7A7A7;
+                    }
+
+                    .socialBox{
+                        display: flex;
+                        width: 100%;
+                        justify-content: space-between;
+                        flex: 2;
+                        padding: 7px 0;
+
+                        .userSocialHandle{
+                            display: flex;
+                            gap: 10px;
+                            align-items: center;
+                            flex-wrap: wrap;
+
+                            span{
+                                text-align: center;
+                                font-size: 12px;
+                                font-weight: 600;
+                                font-style: italic;
+                                color: #A7A7A7;
+                                display: flex;
+                                align-items: center;
+                                cursor: pointer;
+                                transition: all 300ms ease-in-out;
+                                &:hover{
+                                    color: #010101;
+                                }
+
+                                .socialIcon{
+                                    font-size: 1.1rem;
+                                }
+                            }
+                        }
+                    }
 
                     .userProfile{
                         display: flex;
@@ -169,38 +211,6 @@
                                 font-weight: 700;
                                 color: #4F4F4F;
                             }
-        
-                            .userName{
-                                font-size: 12px;
-                                font-weight: 600;
-                                font-style: italic;
-                                color: #A7A7A7;
-                            }
-                        }
-
-                        .userSocialHandle{
-                            display: flex;
-                            gap: 10px;
-                            align-items: center;
-
-                            span{
-                                text-align: center;
-                                font-size: 12px;
-                                font-weight: 600;
-                                font-style: italic;
-                                color: #A7A7A7;
-                                display: flex;
-                                align-items: center;
-                                cursor: pointer;
-                                transition: all 300ms ease-in-out;
-                                &:hover{
-                                    color: #010101;
-                                }
-
-                                .socialIcon{
-                                    font-size: 1.1rem;
-                                }
-                            }
                         }
 
                     }
@@ -209,7 +219,14 @@
                     .likesInfo{
                         color: #858484;
                         display: flex;
-                        gap: 3px;
+                        gap: 10px;
+                        // flex-wrap: wrap;
+
+                        .likeBox{
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                        }
 
                         .download{
                             margin-right: 10px;

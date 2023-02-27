@@ -7,9 +7,12 @@ import { AiOutlineInfoCircle } from 'react-icons/ai';
 import { AiOutlineInstagram } from 'react-icons/ai';
 import { CiTwitter } from 'react-icons/ci';
 import { SlLike } from 'react-icons/sl';
+import { GoDesktopDownload } from 'react-icons/go';
+
 
 const PopupModal = ({ popupImg, setShowPopup, Style, borderStyle }) => {
 
+    const totalLikes = popupImg.likes > 999 ? `${(popupImg.likes / 1000).toFixed(1)}k ` : popupImg.likes
     const popupHandle = () => {
         setShowPopup(false)
         document.body.style.overflow = 'unset';
@@ -53,6 +56,7 @@ const PopupModal = ({ popupImg, setShowPopup, Style, borderStyle }) => {
                     </div>
 
                     <div style={Style} className="popupCardInfo">
+
                         <div className="userInfoBox">
                             <div className="userProfile">
                                 <img src={popupImg.user.profile_image.small} alt="user Img" />
@@ -61,19 +65,28 @@ const PopupModal = ({ popupImg, setShowPopup, Style, borderStyle }) => {
                                     <span className="name">{popupImg.user.name}</span>
                                     <span className="userName">@{popupImg.user.username}</span>
                                 </div>
+                            </div>
 
+                            <div className="socialBox">
                                 <div className="userSocialHandle">
                                     {popupImg.user.social.instagram_username && <span className="insta"><AiOutlineInstagram className='socialIcon' /> {popupImg.user.social.instagram_username}</span>}
                                     {popupImg.user.social.twitter_username && <span className="twitter"><CiTwitter className='socialIcon' />{popupImg.user.social.twitter_username}</span>}
                                 </div>
+
+                                <div className="likesInfo ">
+                                    <div className='likeBox' >
+                                        {/* <span className="likes download">downloads</span> */}
+                                        <GoDesktopDownload className='likeIcon' />
+                                        <span className="likes">1.2K</span>
+                                    </div>
+                                    <div className='likeBox' >
+                                        <SlLike className='likeIcon' />
+                                        <span className="likes">{totalLikes}</span>
+                                    </div>
+                                </div>
+
                             </div>
 
-                            <div className="likesInfo">
-                                <span className="likes">1.2</span>
-                                <span className="likes download">downloads</span>
-                                <SlLike className='likeIcon' />
-                                <span className="likes">{popupImg.likes > 999 ? `${(popupImg.likes / 1000).toFixed(1)}k ` : popupImg.likes}</span>
-                            </div>
                         </div>
 
                         {
