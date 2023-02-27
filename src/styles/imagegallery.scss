@@ -193,8 +193,9 @@
                                 align-items: center;
                                 cursor: pointer;
                                 transition: all 300ms ease-in-out;
+
                                 &:hover{
-                                    color: #010101;
+                                    color: #4d4d4d;
                                 }
 
                                 .socialIcon{
@@ -247,7 +248,7 @@
                             cursor: pointer;
                             transition: $smooth;
                             &:hover{
-                                color: #010101;
+                                color: #4d4d4d;
                             }
                         }
 
