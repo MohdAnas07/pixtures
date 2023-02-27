@@ -28,6 +28,7 @@ const Home = () => {
         border: darkMode && '1px solid #858484'
     }
 
+
     useEffect(() => {
 
         const getData = async () => {
@@ -48,6 +49,7 @@ const Home = () => {
         }
         getData();
     }, [search])
+
 
     return (
         <div style={Style} className="home">

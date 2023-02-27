@@ -1,15 +1,8 @@
 import React, { useState, useEffect, useContext } from 'react'
-import axios from 'axios'
-import fileDownload from 'js-file-download'
 import '../styles/imagegallery.scss';
 import ImageCard from './ImageCard';
-import { AiOutlineClose } from 'react-icons/ai'
-import { AiOutlineInstagram } from 'react-icons/ai'
-import { AiOutlineInfoCircle } from 'react-icons/ai'
-import { CiTwitter } from 'react-icons/ci'
-import { SlLike } from 'react-icons/sl'
-import { BiShareAlt } from 'react-icons/bi'
 import { ThemeContext } from '../context';
+import PopupModal from './PopupModal';
 
 
 const ImageGallery = ({ imageData, search }) => {
@@ -27,31 +20,13 @@ const ImageGallery = ({ imageData, search }) => {
         backgroundColor: darkMode ? dark : light,
         color: darkMode ? light : dark,
     }
+
     const borderStyle = {
-        // backgroundColor: darkMode ? dark : light,
+        backgroundColor: darkMode ? "rgb(224 224 224 / 90%)" : "rgba(0, 0, 0, 0.9)",
         // color: darkMode ? light : dark,
         border: darkMode && '1px solid #858484'
     }
 
-
-
-    const popupHandle = () => {
-        setShowPopup(false)
-        document.body.style.overflow = 'unset';
-    }
-
-    const handleDownload = (url, filename) => {
-        console.log(url);
-
-        axios.get(url, {
-            responseType: 'blob',
-        })
-            .then((res) => {
-                console.log(res);
-
-                fileDownload(res.data, filename)
-            })
-    }
 
     return (
         <div className="imageGallery">
@@ -89,74 +64,11 @@ const ImageGallery = ({ imageData, search }) => {
             </div>
 
 
+            {/* ============ POPUP MODAL ================================= */}
 
-            {/* ============= POPUP MODAL =========================================== */}
             {
-                showPopup && popupImg && <div style={borderStyle} className="popupCard">
-                    <div style={Style} className="popupWrapper">
-                        <AiOutlineClose style={Style} className='popupClose' onClick={popupHandle} />
-                        <div className="popupCardImg">
-                            <img src={popupImg.urls.full} alt={popupImg.description
-                            } className="popupImg" />
-
-                            <div className="shareDownload">
-                                <div className="shareBtns">
-                                    <button className="shareBtn"><BiShareAlt />Share</button>
-                                    <button className="shareBtn"><AiOutlineInfoCircle />Info</button>
-                                </div>
-                                <div className="downloadBtn">
-                                    <button className="download" onClick={() => {
-                                        handleDownload('https://images.unsplash.com/photo-1677161082730-5f0a653428b8?ixlib=rb-4.0.3&q=80&fm=jpg&crop=entropy&cs=tinysrgb', 'test-download.jpg')
-                                    }}> Download Image</button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div style={Style} className="popupCardInfo">
-                            <div className="userInfoBox">
-                                <div className="userProfile">
-                                    <img src={popupImg.user.profile_image.small} alt="user Img" />
-
-                                    <div className="userInfo">
-                                        <span className="name">{popupImg.user.name}</span>
-                                        <span className="userName">@{popupImg.user.username}</span>
-                                    </div>
-
-                                    <div className="userSocialHandle">
-                                        {popupImg.user.social.instagram_username && <span className="insta"><AiOutlineInstagram className='socialIcon' /> {popupImg.user.social.instagram_username}</span>}
-                                        {popupImg.user.social.twitter_username && <span className="twitter"><CiTwitter className='socialIcon' />{popupImg.user.social.twitter_username}</span>}
-                                    </div>
-                                </div>
-
-                                <div className="likesInfo">
-                                    <span className="likes">1.2</span>
-                                    <span className="likes download">downloads</span>
-                                    <SlLike className='likeIcon' />
-                                    <span className="likes">{popupImg.likes > 999 ? `${(popupImg.likes / 1000).toFixed(1)}k ` : popupImg.likes}</span>
-                                </div>
-                            </div>
-
-                            {
-                                popupImg.tags && <div className="tagsCard">
-                                    <span className="tagLine">Releted Tags</span>
-                                    <div className="tagsBox">
-                                        {
-                                            popupImg.tags.map((tag, ind) => {
-                                                return (
-                                                    <span key={ind} className="tag">{tag.title}</span>
-                                                )
-                                            })
-                                        }
-                                    </div>
-                                </div>
-                            }
-                        </div>
-
-
-                    </div>
-                </div>
+                showPopup && popupImg && <PopupModal popupImg={popupImg} setShowPopup={setShowPopup} Style={Style} borderStyle={borderStyle} />
             }
-
 
         </div>
     )

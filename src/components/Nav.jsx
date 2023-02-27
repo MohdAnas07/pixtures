@@ -35,12 +35,15 @@ const Nav = ({ setSearch }) => {
         console.log(e.target.value);
         setSearchInput(e.target.value)
         setSearch(searchInput)
+        if (e.target.value === '') {
+            setSearch('')
+        }
     }
+
 
     const handleSidenav = () => {
         setShowSideNav(!showSideNav)
     }
-
 
     useEffect(() => {
         if (showSideNav) {
@@ -83,10 +86,6 @@ const Nav = ({ setSearch }) => {
                     <div className="switch" >
                         <Toggle />
                     </div>
-                    {/* <label className="switch">
-                        <input type="checkbox" checked readOnly />
-                        <span className="slider round"></span>
-                    </label> */}
                 </div>
             </div>
 

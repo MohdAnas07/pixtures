@@ -6,8 +6,6 @@ import Home from './pages/Home'
 function App() {
   const theme = useContext(ThemeContext)
   const darkMode = theme.state.darkMode;
-  const [isLoading, setIsLoading] = useState(true)
-
 
   const dark = "#232323";
   const light = "#fff";
