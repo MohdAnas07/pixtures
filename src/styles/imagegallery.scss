@@ -118,16 +118,33 @@
                             outline: none;
                             font-size: 14px;
                             background-color: #0e0e0e31;
+                            transition: $smooth;
+
+                            &:hover{
+                                background-color: #959595c3;
+                                transform: translateY(-2px);
+                            }
                         }
                     }
 
                     .downloadBtn{
                         .download{
                             background-color: #3CB46E;
+                            display: flex;
+                            flex-direction: row;
+                            justify-content: center;
+                            align-items: center;
                             border-radius: 4px;
-                            padding: 10px 9px;
-                            // padding: 10px 12px;
-                            // font-size: 14px;
+                            padding: 9px 8px;
+                            gap: 8.24px;
+                            outline: none;
+                            font-size: 14px;
+                            transition: $smooth;
+
+                            &:hover{
+                                background-color: #268b50;
+                                transform: translateY(-2px);
+                            }
                         }
                     }
                 }
@@ -198,18 +215,20 @@
                             border-radius: 50%;
                             object-fit: cover;
                             margin-right: .7rem;
-
+                            cursor: pointer;
                         }
 
                         .userInfo{
                             display: flex;
                             flex-direction: column;
                             margin-right: 2rem;
+                            cursor: pointer;
 
                             .name{
                                 font-size: 14px;
                                 font-weight: 700;
                                 color: #4F4F4F;
+                                cursor: pointer;
                             }
                         }
 
@@ -220,12 +239,13 @@
                         color: #858484;
                         display: flex;
                         gap: 10px;
-                        // flex-wrap: wrap;
 
                         .likeBox{
                             display: flex;
                             align-items: center;
                             justify-content: center;
+                            cursor: pointer;
+                            transition: $smooth;
                             &:hover{
                                 color: #010101;
                             }
@@ -238,6 +258,10 @@
                             font-size: 14px;
                             margin-right: 5px;
                             cursor: pointer;
+                            transition: $smooth;
+                            &:hover{
+                                transform: translateY(-2px);
+                            }
                         }
         
                         .likes{
@@ -312,11 +336,11 @@
 
         .shareDownload{
             padding: 0 !important;
-            
+
             .shareBtn{
                 font-size: 12px !important;
             }
-            
+
             .download{
                 font-size: 12px !important;
                 padding: 8px 6px;

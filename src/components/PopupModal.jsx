@@ -8,6 +8,7 @@ import { AiOutlineInstagram } from 'react-icons/ai';
 import { CiTwitter } from 'react-icons/ci';
 import { SlLike } from 'react-icons/sl';
 import { GoDesktopDownload } from 'react-icons/go';
+import { BsCloudDownload } from 'react-icons/bs'
 
 
 const PopupModal = ({ popupImg, setShowPopup, Style, borderStyle }) => {
@@ -53,7 +54,10 @@ const PopupModal = ({ popupImg, setShowPopup, Style, borderStyle }) => {
                             <div className="downloadBtn">
                                 <button className="download" onClick={() => {
                                     handleDownload('https://images.unsplash.com/photo-1677161082730-5f0a653428b8?ixlib=rb-4.0.3&q=80&fm=jpg&crop=entropy&cs=tinysrgb', 'test-download.jpg')
-                                }}> Download Image</button>
+                                }}>
+                                    <BsCloudDownload />
+                                    Download
+                                </button>
                             </div>
 
                         </div>

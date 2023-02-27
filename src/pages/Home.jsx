@@ -32,19 +32,18 @@ const Home = () => {
     useEffect(() => {
 
         const getData = async () => {
-            console.log("env variables", import.meta);
 
             if (search === '') {
-                const res = await axios.get(`https://api.unsplash.com/photos?page=4&client_id=${import.meta.env.VITE_CLIENT_ID}`)
+                const URL = `https://api.unsplash.com/photos?page=4&client_id=${import.meta.env.VITE_CLIENT_ID}`
+                const res = await axios.get(URL)
                 setImageData(res.data)
-                console.log('from open api', res);
                 if (res.status === 200) {
                     setIsLoading(false)
                 }
             } else {
-                const res = await axios.get(`https://api.unsplash.com/search/photos?page=1&query=${search}&client_id=${import.meta.env.VITE_CLIENT_ID}`)
+                const URL = `https://api.unsplash.com/search/photos?page=1&query=${search}&client_id=${import.meta.env.VITE_CLIENT_ID}`
+                const res = await axios.get(URL)
                 setImageData(res.data.results)
-                console.log('from query api', res.data.results);
             }
         }
         getData();
