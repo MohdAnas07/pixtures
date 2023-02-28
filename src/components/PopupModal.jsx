@@ -112,7 +112,6 @@ const PopupModal = ({ popupImg, setShowPopup, Style, borderStyle }) => {
                             </div>
                         }
                     </div>
-
                 </div>
             </div>
         </>
