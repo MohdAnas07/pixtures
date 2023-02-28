@@ -9,11 +9,15 @@ import { CiTwitter } from 'react-icons/ci';
 import { SlLike } from 'react-icons/sl';
 import { GoDesktopDownload } from 'react-icons/go';
 import { BsCloudDownload } from 'react-icons/bs'
+import { Link } from 'react-router-dom'
 
 
 const PopupModal = ({ popupImg, setShowPopup, Style, borderStyle }) => {
 
     const totalLikes = popupImg.likes > 999 ? `${(popupImg.likes / 1000).toFixed(1)}k ` : popupImg.likes
+    const instagram_username = popupImg.user.social.instagram_username || null
+    const twitter_username = popupImg.user.social.twitter_username || null
+
     const popupHandle = () => {
         setShowPopup(false)
         document.body.style.overflow = 'unset';
@@ -64,21 +68,33 @@ const PopupModal = ({ popupImg, setShowPopup, Style, borderStyle }) => {
                     </div>
 
                     <div style={Style} className="popupCardInfo">
-
+                        {/* https://unsplash.com/@LureOfAdventure */}
                         <div className="userInfoBox">
                             <div className="userProfile">
-                                <img src={popupImg.user.profile_image.small} alt="user Img" />
+                                <a href={`https://unsplash.com/@${popupImg.user.username}`} target='_blank'>
+                                    <img src={popupImg.user.profile_image.small} alt="user Img" />
+                                </a>
 
                                 <div className="userInfo">
                                     <span className="name">{popupImg.user.name}</span>
-                                    <span className="userName">@{popupImg.user.username}</span>
+                                    <a href={`https://unsplash.com/@${popupImg.user.username}`} target='_blank'>
+                                        <span className="userName">@{popupImg.user.username}</span></a>
                                 </div>
                             </div>
-
                             <div className="socialBox">
                                 <div className="userSocialHandle">
-                                    {popupImg.user.social.instagram_username && <span className="insta"><AiOutlineInstagram className='socialIcon' /> {popupImg.user.social.instagram_username}</span>}
-                                    {popupImg.user.social.twitter_username && <span className="twitter"><CiTwitter className='socialIcon' />{popupImg.user.social.twitter_username}</span>}
+                                    {
+                                        instagram_username &&
+                                        <a href={`https://www.instagram.com/${instagram_username}`} target='_blank' >
+                                            <span className="insta"><AiOutlineInstagram className='socialIcon' /> {instagram_username}</span>
+                                        </a>
+                                    }
+                                    {
+                                        twitter_username &&
+                                        <a href={`https://twitter.com/${twitter_username}`} target='_blank' >
+                                            <span className="insta"><CiTwitter className='socialIcon' /> {twitter_username}</span>
+                                        </a>
+                                    }
                                 </div>
 
                                 <div className="likesInfo ">
