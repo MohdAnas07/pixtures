@@ -59,7 +59,7 @@ const Nav = ({ setSearch }) => {
         <div style={Style} className="nav">
             <div className="navWrapper">
                 <div className="leftNav">
-                    <h2 className="logo">Image Gallery</h2>
+                    <h2 className="logo">Pixtures</h2>
                 </div>
 
                 <div className="centerNav">

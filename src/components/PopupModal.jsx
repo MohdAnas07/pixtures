@@ -24,15 +24,17 @@ const PopupModal = ({ popupImg, setShowPopup, Style, borderStyle }) => {
     }
 
     const handleDownload = (url, filename) => {
-        console.log(url);
+        // console.log(url);
 
         axios.get(url, {
             responseType: 'blob',
         })
             .then((res) => {
-                console.log(res);
+                console.log('res', res);
 
-                fileDownload(res.data, filename)
+                fileDownload(res, filename)
+            }).catch((err) => {
+                console.error(err);
             })
     }
 
@@ -56,12 +58,15 @@ const PopupModal = ({ popupImg, setShowPopup, Style, borderStyle }) => {
                             </div>
 
                             <div className="downloadBtn">
-                                <button className="download" onClick={() => {
-                                    handleDownload('https://images.unsplash.com/photo-1677161082730-5f0a653428b8?ixlib=rb-4.0.3&q=80&fm=jpg&crop=entropy&cs=tinysrgb', 'test-download.jpg')
-                                }}>
-                                    <BsCloudDownload />
-                                    Download
-                                </button>
+                                <a download={`${popupImg.links.download_location}`} >
+                                    <button className="download" onClick={() => {
+                                        // handleDownload(, 'test-download.jpg')
+                                    }}>
+
+                                        <BsCloudDownload />
+                                        Download
+                                    </button>
+                                </a>
                             </div>
 
                         </div>
